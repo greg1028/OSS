@@ -2,17 +2,17 @@ const { RTMClient } = require('@slack/rtm-api');
 
 const fs = require('fs');
 
-let token;
+var token;
 
 try {
-	  token = fs.readFileSync('./token').toString('utf-8');
+	  token = fs.readFileSync('./hide/token').toString('utf-8');
 } catch (err) {
 	  console.error(err);
 }
 
 console.log(token);
 
-token = token.replace(/g, '');
+token = token.replace(/\n/g, '');
 
 const rtm = new RTMClient(token);
 rtm.start();
@@ -24,7 +24,7 @@ rtm.on('message', (message) => {
 	  const { channel } = message;
 	  const { text } = message;
 
-	  if (!Number.isNaN(text)) {
+	  if (!isNaN(text)) {
 		      square(rtm, text, channel);
 		    } else {
 			        switch (text) {
