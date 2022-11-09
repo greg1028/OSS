@@ -12,8 +12,7 @@ try {
 
 console.log(token);
 
-token = token.replace(/
-	/g, '');
+token = token.replace(/g, '');
 
 const rtm = new RTMClient(token);
 rtm.start();
