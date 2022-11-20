@@ -17,4 +17,7 @@ const office = function (rtm, text, channel) {
   rtm.sendMessage(`The adress is ${dict[text]}`, channel);
 };
 
-module.exports = office;
+module.exports = {
+  office,
+  dict,
+};
