@@ -1,4 +1,4 @@
-const dict = {
+const offDict = {
   'Architectural Engineering': 'College of Engineering Building 1, 132',
   'Mechanical Engineering': 'College of Engineering Building 4, 212',
   'Urban Engineering': 'College of Engineering Building 9, 917',
@@ -10,11 +10,4 @@ const dict = {
   'Korean Language and Literature': 'College of Humanities, 320',
   'Library and Information Science': 'College of Humanities, 427',
 };
-
-const office = function (rtm, text, channel) {
-  console.log('주소를 찾습니다');
-  console.log(text);
-  rtm.sendMessage(`The adress is ${dict[text]}`, channel);
-};
-
-module.exports = office;
+module.exports = offDict;

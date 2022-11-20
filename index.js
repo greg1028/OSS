@@ -12,7 +12,7 @@ try {
 
 console.log(token);
 
-const dict = {
+/* const dict = {
   'Architectural Engineering': 'College of Engineering Building 1, 132',
   'Mechanical Engineering': 'College of Engineering Building 4, 212',
   'Urban Engineering': 'College of Engineering Building 9, 917',
@@ -23,7 +23,7 @@ const dict = {
   'International Trade': 'College of Commerce 1, 9999',
   'Korean Language and Literature': 'College of Humanities, 320',
   'Library and Information Science': 'College of Humanities, 427',
-};
+}; */
 
 token = token.replace(/\n/g, '');
 
@@ -33,6 +33,7 @@ rtm.start();
 const greeting = require('./greeting');
 const square = require('./square');
 const office = require('./office');
+const offDict = require('./offDict');
 
 rtm.on('message', (message) => {
   const { channel } = message;
@@ -40,7 +41,7 @@ rtm.on('message', (message) => {
 
   if (!isNaN(text)) {
     square(rtm, text, channel);
-  } else if (text in dict) {
+  } else if (text in offDict) {
     office(rtm, text, channel);
   } else if (isNaN(text)) {
     switch (text) {
