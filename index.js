@@ -32,6 +32,7 @@ rtm.start();
 
 const greeting = require('./greeting');
 const square = require('./square');
+const office = require('./office');
 
 rtm.on('message', (message) => {
   const { channel } = message;
@@ -40,7 +41,7 @@ rtm.on('message', (message) => {
   if (!isNaN(text)) {
     square(rtm, text, channel);
   } else if (text in dict) {
-    console.log(dict[text]);
+    office(rtm, text, channel);
   } else if (isNaN(text)) {
     switch (text) {
       case 'hi':
