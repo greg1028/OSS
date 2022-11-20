@@ -26,7 +26,7 @@ rtm.on('message', (message) => {
 
   if (!isNaN(text)) {
     square(rtm, text, channel);
-  } else {
+  } else if (isNaN(text)) {
     switch (text) {
       case 'hi':
         greeting(rtm, channel);
