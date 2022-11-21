@@ -20,7 +20,6 @@ rtm.start();
 const greeting = require('./greeting');
 const square = require('./square');
 const office = require('./office');
-// const offDict = require('./office');
 
 rtm.on('message', (message) => {
   const { channel } = message;
@@ -28,7 +27,7 @@ rtm.on('message', (message) => {
 
   if (!isNaN(text)) {
     square(rtm, text, channel);
-  } else if (office.offDict.includes(text)) {
+  } else if (text in office.offDict) {
     rtm.sendMessage(office.office(text), channel);
   } else if (isNaN(text)) {
     switch (text) {
