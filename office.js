@@ -12,8 +12,8 @@ const offDict = {
 };
 
 function office(text) {
-  // console.log('주소를 찾습니다');
-  // console.log(text);
+  console.log('주소를 찾습니다');
+  console.log(text);
   return offDict[text];
 }
 
