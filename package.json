@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\"",
+    "test": "mocha greeting.spec.js",
     "prepare": "husky install"
   },
   "repository": {
@@ -21,6 +21,7 @@
     "eslint": "^8.27.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "husky": "^8.0.0"
+    "husky": "^8.0.0",
+    "mocha": "^10.1.0"
   }
 }
