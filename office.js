@@ -20,10 +20,9 @@ function office(text) {
 module.exports = office;
 
 function offDict(text) {
-  if (text in dict) {
+  if (Object.keys(dict).includes(text)) {
     return 1;
   }
   return 0;
 }
-
 module.exports = offDict;
