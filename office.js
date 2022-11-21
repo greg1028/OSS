@@ -18,3 +18,12 @@ function office(text) {
 }
 
 module.exports = office;
+
+function offDict(text) {
+  if (text in dict) {
+    return 1;
+  }
+  return 0;
+}
+
+module.exports = offDict;
