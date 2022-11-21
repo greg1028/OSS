@@ -1,4 +1,4 @@
-const dict = {
+const Info = {
   'Architectural Engineering': 'College of Engineering Building 1, 132',
   'Mechanical Engineering': 'College of Engineering Building 4, 212',
   'Urban Engineering': 'College of Engineering Building 9, 917',
@@ -11,8 +11,4 @@ const dict = {
   'Library and Information Science': 'College of Humanities, 427',
 };
 
-function getAdress(text) {
-  return dict[text];
-}
-
-module.exports = getAdress;
+module.exports = Info;
