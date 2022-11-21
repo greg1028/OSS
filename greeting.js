@@ -3,13 +3,12 @@ function randomNum(min, max) {
   return randNum;
 }
 
-const reply = ['Hello!', 'Bongjur!', 'Nihao!'];
+const reply = ['Hello!', 'Bongjur!', 'Nihao!']; // 이 중에 하나로 대답
 
-function greeting(rtm, channel) {
+function greeting() {
   console.log('인사를 합시다.');
-  const n = randomNum(0, 2);
-  console.log(`n값 : ${n}`);
-  rtm.sendMessage(reply[n], channel);
+  const n = randomNum(0, 2); // 0~2 난수 생성
+  return reply[n];
 }
 
 module.exports = greeting;

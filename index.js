@@ -29,7 +29,7 @@ rtm.on('message', (message) => {
   } else {
     switch (text) {
       case 'hi':
-        greeting(rtm, channel);
+        rtm.sendMessage(greeting(), channel);
         break;
       default:
         rtm.sendMessage('I am alive~', channel);
