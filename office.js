@@ -1,4 +1,4 @@
-const dict = {
+const offDict = {
   'Architectural Engineering': 'College of Engineering Building 1, 132',
   'Mechanical Engineering': 'College of Engineering Building 4, 212',
   'Urban Engineering': 'College of Engineering Building 9, 917',
@@ -17,12 +17,7 @@ function office(text) {
   return dict[text];
 }
 
-module.exports = office;
-
-function offDict(text) {
-  if (Object.keys(dict).includes(text)) {
-    return true;
-  }
-  return false;
-}
-module.exports = offDict;
+module.exports = {
+  office,
+  offDict,
+};

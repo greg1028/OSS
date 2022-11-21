@@ -28,7 +28,7 @@ rtm.on('message', (message) => {
 
   if (!isNaN(text)) {
     square(rtm, text, channel);
-  } else if (offDict(text)) {
+  } else if (Object.keys(offDict).includes(text)) {
     rtm.sendMessage(office(text), channel);
   } else if (isNaN(text)) {
     switch (text) {
