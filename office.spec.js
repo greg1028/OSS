@@ -15,22 +15,22 @@ const offarr = [
 
 describe('App test!', () => {
   it('addresses 검사', (done) => {
-    text1 = office.office('Architectural Engineering');
-    if (text1 in offarr) {
+    text1 = 'Architectural Engineering';
+    if (office.office(text1) in offarr) {
       done();
     } else {
       throw new Error('Test Failed');
     }
 
-    text2 = office.office('Korean Language and Literature');
-    if (text2 in offarr) {
+    text2 = 'Korean Language and Literature';
+    if (office.office(text2) in offarr) {
       done();
     } else {
       throw new Error('Test Failed');
     }
 
-    text3 = office.office('Library and Information Science');
-    if (text3 in offarr) {
+    text3 = 'Library and Information Science';
+    if (office.office(text3) in offarr) {
       done();
     } else {
       throw new Error('Test Failed');
