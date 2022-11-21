@@ -21,8 +21,8 @@ module.exports = office;
 
 function offDict(text) {
   if (Object.keys(dict).includes(text)) {
-    return 1;
+    return true;
   }
-  return 0;
+  return false;
 }
 module.exports = offDict;
