@@ -1,3 +1,5 @@
+// const reply = ['Hello!', 'Bongjur!', 'Nihao!'];
+
 const offDict = {
   'Architectural Engineering': 'College of Engineering Building 1, 132',
   'Mechanical Engineering': 'College of Engineering Building 4, 212',
@@ -14,7 +16,7 @@ const offDict = {
 function office(text) {
   console.log('주소를 찾습니다');
   console.log(text);
-  return dict[text];
+  return offDict[text];
 }
 
 module.exports = {
