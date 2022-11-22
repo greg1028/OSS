@@ -1,4 +1,4 @@
-const greeting = require('./greeting');
+const greeting = require('../greeting');
 
 const reply = ['Hello!', 'Bongjur!', 'Nihao!'];
 
