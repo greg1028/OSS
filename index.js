@@ -28,6 +28,6 @@ rtm.on('message', (message) => {
   if (text == '학사일정') {
     rtm.sendMessage('안내 받을 날짜를 이야기해주세요', channel);
   } else if (isNaN(text)) {
-    square(rtm, text, channel);
+    schedule(rtm, text, channel);
   } else { rtm.sendMessage('ERROR2', channel); }
 });
