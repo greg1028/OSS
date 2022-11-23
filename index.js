@@ -30,6 +30,8 @@ rtm.on('message', (message) => {
     rtm.sendMessage('안내 받을 날짜를 이야기해주세요', channel);
   } else if (text in scheduleinfo) {
     schedule(rtm, text, channel);
+  } else if (text in Info) {
+    rtm.sendMessage(getAdress(text), channel);
   } else if (!isNaN(text)) {
     square(rtm, text, channel);
   } else {
