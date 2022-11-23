@@ -37,7 +37,7 @@ rtm.on('message', (message) => {
   } else if (isNaN(text)) {
     switch (text) {
       case 'hi':
-        greeting(rtm, channel);
+        rtm.sendMessage(greeting(), channel);
         break;
       case '학사일정':
         rtm.sendMessage('안내 받을 날짜를 이야기해주세요', channel);
