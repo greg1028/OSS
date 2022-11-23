@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo 'Must pass ESLint-test'
-eslint . --ext .js
+npm test
