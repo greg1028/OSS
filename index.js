@@ -19,6 +19,8 @@ rtm.start();
 
 const greeting = require('./greeting');
 const square = require('./square');
+const getAdress = require('./office');
+const Info = require('./officeInfo');
 const schedule = require('./schedule');
 const scheduleinfo = require('./haksa');
 
