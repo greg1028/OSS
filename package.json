@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha greeting.spec.js",
+    "test": "mocha",
     "prepare": "husky install"
   },
   "repository": {
