@@ -1,12 +1,7 @@
-/* eslint-disable no-restricted-syntax */
-const fs = require('fs');
+const scheduleInfo = require('./haksa');
 
 function schedule(text) {
-  const date = fs.readFileSync('haksa.js').toString().split('\n');
-  for (i in date) {
-    if (date[i].includes(text)) {
-      return date[i];
-    }
-  }
+  str = `${text}는 ${scheduleInfo[text]}입니다.`;
+  return str;
 }
 module.exports = schedule;
