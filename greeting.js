@@ -3,7 +3,7 @@ function randomNum(min, max) {
   return randNum;
 }
 
-const reply = ['Hello!', 'Bongjur!', 'Nihao!']; // 이 중에 하나로 대답
+const reply = ['Hello!', 'Bonjur!', 'Nihao!']; // 이 중에 하나로 대답
 
 function greeting() {
   console.log('인사를 합시다.');
