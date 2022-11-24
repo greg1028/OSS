@@ -23,6 +23,7 @@ const getAdress = require('./office');
 const Info = require('./officeInfo');
 const schedule = require('./schedule');
 const scheduleinfo = require('./haksa');
+const menu = require('./menu');
 
 rtm.on('message', (message) => {
   const { channel } = message;
@@ -41,6 +42,9 @@ rtm.on('message', (message) => {
         break;
       case '학사일정':
         rtm.sendMessage('안내 받을 날짜를 이야기해주세요', channel);
+        break;
+      case '밥':
+        menu(rtm, channel);
         break;
       default:
         rtm.sendMessage('I am alive~', channel);
