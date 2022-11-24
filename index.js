@@ -34,7 +34,7 @@ rtm.on('message', (message) => {
   } else if (text in Info) {
     rtm.sendMessage(getAdress(text), channel);
   } else if (text in scheduleinfo) {
-    schedule(rtm, text, channel);
+    rtm.sendMessage(schedule(text), channel);
   } else if (isNaN(text)) {
     switch (text) {
       case 'hi':

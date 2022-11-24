@@ -17,5 +17,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     'no-undef': 'off', // 정의하지 않은 함수 사용 가능
     'no-plusplus': 'off', // ++ 가능
+    'consistent-return': 'off',
   },
 };

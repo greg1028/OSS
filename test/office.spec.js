@@ -1,9 +1,9 @@
 const assert = require('assert');
 const getAdress = require('../office');
 
-text1 = 'Architectural Engineering';
-text2 = 'Korean Language and Literature';
-text3 = 'Library and Information Science';
+const text1 = 'Architectural Engineering';
+const text2 = 'Korean Language and Literature';
+const text3 = 'Library and Information Science';
 
 describe('office test!', () => {
   it("Test - Put 'Architectural Engineering'", (done) => {
