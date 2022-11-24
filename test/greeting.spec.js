@@ -1,6 +1,6 @@
 const greeting = require('../greeting');
 
-const reply = ['Hello!', 'Bongjur!', 'Nihao!'];
+const reply = ['Hello!', 'Bonjur!', 'Nihao!'];
 
 describe('greeting test!', () => {
   it('greeting 검사', (done) => {
