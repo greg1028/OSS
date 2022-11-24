@@ -1,4 +1,4 @@
-const getAdress = require('./office');
+const getAdress = require('../office');
 
 text1 = 'Architectural Engineering';
 text2 = 'Korean Language and Literature';
