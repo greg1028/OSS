@@ -24,6 +24,7 @@ const Info = require('./officeInfo');
 const schedule = require('./schedule');
 const scheduleinfo = require('./haksa');
 const menu = require('./menu');
+const rating = require('./rating');
 
 rtm.on('message', (message) => {
   const { channel } = message;
@@ -35,6 +36,8 @@ rtm.on('message', (message) => {
     rtm.sendMessage(getAdress(text), channel);
   } else if (text in scheduleinfo) {
     rtm.sendMessage(schedule(text), channel);
+  } else if (text === '이번주 뭐나와') {
+    rating();
   } else if (isNaN(text)) {
     switch (text) {
       case 'hi':
