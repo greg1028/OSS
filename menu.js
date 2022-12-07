@@ -21,8 +21,9 @@ const d = new Date().getDay();
 console.log(`${day[d]} 메뉴`);
 
 const url = 'https://sobi.chonbuk.ac.kr/menu/week_menu.php';
-const selector = `#contents > div.contentsArea.WeekMenu > div:nth-child(229) > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(${d + 2}) > ul > li`;
-
+const selector = `#contents > div.contentsArea.WeekMenu > div > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(${d + 2}) > ul > li `;
+let txt = '';
+// div 뒤에 숫자 제거
 function menu(rtm, channel) {
   if (d === 6 || d === 0) { // 주말이면
     rtm.sendMessage('주말은 쉽니다.', channel);
@@ -31,9 +32,12 @@ function menu(rtm, channel) {
     webScraping(url, selector).then((res) => {
       for (let i = 0; i < res.length; i++) {
         if (res[i] !== '') {
-          rtm.sendMessage(res[i], channel);
+          txt += `${res[i]}, `;
         }
       }
+      txt += '입니다.';
+      console.log(txt);
+      rtm.sendMessage(txt, channel);
     });
   }
 }
