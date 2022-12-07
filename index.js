@@ -25,11 +25,17 @@ const schedule = require('./schedule');
 const scheduleinfo = require('./haksa');
 const menu = require('./menu');
 
+const testID = U0472FJCEDV;
+
 rtm.on('message', (message) => {
   const { channel } = message;
   const { text } = message;
 
-  if (!isNaN(text)) {
+  if (message.user === testID) {
+    for (let i = 0; i < 10; i++) {
+      rtm.sendMessage(greeting(), channel);
+    }
+  } else if (!isNaN(text)) {
     square(rtm, text, channel);
   } else if (text in Info) {
     rtm.sendMessage(getAdress(text), channel);
