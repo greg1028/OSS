@@ -4,9 +4,9 @@ const sleep = (ms) => new Promise((resolve) => {
   setTimeout(resolve, ms);
 });
 
-const rating = async () => {
+const rating = async function (rtm, channel) {
   for (let i = 1; i < 6; i++) {
-    crawl(i);
+    crawl(rtm, channel, i);
     await sleep(1000);
   }
 };

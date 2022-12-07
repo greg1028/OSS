@@ -23,7 +23,7 @@ async function webScraping(Url, selector) {
   return res;
 }
 
-function crawl(z) {
+function crawl(rtm, channel, z) {
   const selector = `#contents > div.contentsArea.WeekMenu > div > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(${z + 2}) > ul > li `;
   webScraping(url, selector).then((res) => {
     for (let i = 0; i < res.length; i++) {
