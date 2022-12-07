@@ -25,7 +25,7 @@ const schedule = require('./schedule');
 const scheduleinfo = require('./haksa');
 const menu = require('./menu');
 
-const testID = U0472FJCEDV;
+const testID = 'U0472FJCEDV';
 
 rtm.on('message', (message) => {
   const { channel } = message;
