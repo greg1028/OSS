@@ -23,6 +23,7 @@ console.log(`${day[d]} 메뉴`);
 const url = 'https://sobi.chonbuk.ac.kr/menu/week_menu.php';
 const selector = `#contents > div.contentsArea.WeekMenu > div > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(${d + 2}) > ul > li `;
 let txt = '';
+let score = 2;
 // div 뒤에 숫자 제거
 function menu(rtm, channel) {
   if (d === 6 || d === 0) { // 주말이면
@@ -37,9 +38,17 @@ function menu(rtm, channel) {
       }
       txt += '입니다.';
       console.log(txt);
+      if (score < 2) {
+        score = 1;
+      } else if (score > 2) {
+        score = 3;
+      }
+
+      star = '★'.repeat(score);
+      console.log(star);
       rtm.sendMessage(txt, channel);
+      rtm.sendMessage(star, channel);
     });
   }
 }
-
 module.exports = menu;
