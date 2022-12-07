@@ -37,7 +37,7 @@ rtm.on('message', (message) => {
   } else if (text in scheduleinfo) {
     rtm.sendMessage(schedule(text), channel);
   } else if (text === '이번주 뭐나와') {
-    rating();
+    rating(rtm, channel);
   } else if (isNaN(text)) {
     switch (text) {
       case 'hi':
