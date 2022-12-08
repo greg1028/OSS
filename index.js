@@ -19,7 +19,7 @@ rtm.start();
 
 const greeting = require('./greeting');
 const square = require('./square');
-const getAdress = require('./office');
+// const getAdress = require('./office');
 const schedule = require('./schedule');
 const menu = require('./menu');
 const rating = require('./rating');
@@ -39,7 +39,7 @@ rtm.on('message', (message) => {
     rtm.on('message', (message) => {
       const { channel } = message;
       const { text } = message;
-      rtm.sendMessage(getAdress(text), channel);
+      rtm.sendMessage('asdadasdasd', channel); // getAdress(text)
       console.log(text);
     });
   } else if (text === '학사일정') {
