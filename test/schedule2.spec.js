@@ -7,15 +7,16 @@ const text3 = '12/21';
 
 describe('schedule test!', () => {
   it("Test - Put '10/15'", (done) => {
-    assert.equal(schedule(text1), '10/15´Â °³±³±â³äÀÏÀÔ´Ï´Ù.');
+    assert.equal(schedule(text1), '10/15ëŠ” ê°œêµê¸°ë…ì¼ìž…ë‹ˆë‹¤.');
     done();
   });
   it("Test - Put '8/22'", (done) => {
-    assert.equal(schedule(text2), '8/22´Â ÈÄ±â ÇÐÀ§¼ö¿©½ÄÀÔ´Ï´Ù.');
+    assert.equal(schedule(text2), '8/22ëŠ” í›„ê¸° í•™ìœ„ìˆ˜ì—¬ì‹ìž…ë‹ˆë‹¤.');
     done();
   });
   it("Test - Put '12/21'", (done) => {
-    assert.equal(schedule(text3), '12/21´Â Á¾°­ÀÔ´Ï´Ù.');
+    assert.equal(schedule(text3), '12/21ëŠ” ì¢…ê°•ìž…ë‹ˆë‹¤.');
     done();
   });
 });
+
