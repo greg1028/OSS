@@ -3,7 +3,6 @@ const parse = require('./parse');
 
 function getAdress(text) {
   parsed = parse(text);
-  return Info[parsed];
+  return Info.Info[parsed];
 }
-
 module.exports = getAdress;
