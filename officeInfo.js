@@ -1,14 +1,30 @@
 const Info = {
-  'Architectural Engineering': 'College of Engineering Building 1, 132',
-  'Mechanical Engineering': 'College of Engineering Building 4, 212',
-  'Urban Engineering': 'College of Engineering Building 9, 917',
-  'Electronic Engineering': 'College of Engineering Building 7, 224',
-  'Computer Science and Engineering': 'College of Engineering Building 7, 224',
-  'Chemical Engineering': 'College of Engineering Building 6, 999',
+  architecturalengineering: 'College of Engineering Building 1, 132',
+  mechanicalengineering: 'College of Engineering Building 4, 212',
+  urbanengineering: 'College of Engineering Building 9, 917',
+  electronicengineering: 'College of Engineering Building 7, 224',
+  computerscienceandengineering: 'College of Engineering Building 7, 224',
+  chemicalengineering: 'College of Engineering Building 6, 999',
   Accounting: 'College of Commerce 2, 9999',
-  'International Trade': 'College of Commerce 1, 9999',
-  'Korean Language and Literature': 'College of Humanities, 320',
-  'Library and Information Science': 'College of Humanities, 427',
+  internationaltrade: 'College of Commerce 1, 9999',
+  koreanlanguageandliterature: 'College of Humanities, 320',
+  libraryandinformationscience: 'College of Humanities, 427',
 };
 
-module.exports = Info;
+const original = {
+  architecturalengineering: 'Architectural Engineering',
+  mechanicalengineering: 'Mechanical Engineering',
+  urbanengineering: 'Urban Engineering',
+  electronicengineering: 'Electronic Engineering',
+  computerscienceandengineering: 'Computer Science and Engineering',
+  chemicalengineering: 'Chemical Engineering',
+  accounting: 'Accounting',
+  internationaltrade: 'International Trade',
+  koreanlanguageandliterature: 'Korean Language and Literature',
+  libraryandinformationscience: 'Library and Information Science',
+};
+
+module.exports = {
+  Info,
+  original,
+};

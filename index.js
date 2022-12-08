@@ -20,9 +20,7 @@ rtm.start();
 const greeting = require('./greeting');
 const square = require('./square');
 const getAdress = require('./office');
-const Info = require('./officeInfo');
 const schedule = require('./schedule');
-const scheduleinfo = require('./haksa');
 const menu = require('./menu');
 const rating = require('./rating');
 const parse = require('./parse');
@@ -31,14 +29,17 @@ rtm.on('message', (message) => {
   const { channel } = message;
   let { text } = message;
   text = parse(text);
-  console.log(message);
-  console.log(text);
 
   if (!isNaN(text)) {
     square(rtm, text, channel);
-  } else if (text in Info) {
+  } else if (text === '학과사무실안내') {
+    rtm.sendMessage('학과 이름을 입력해주세요', channel);
+    const { channel } = message;
+    let { text } = message;
+    text = parse(text);
+
     rtm.sendMessage(getAdress(text), channel);
-  } else if (text in scheduleinfo) {
+  } else if (text === '학사일정') {
     rtm.sendMessage(schedule(text), channel);
   } else if (text === '이번주뭐나와') {
     rating(rtm, channel);
@@ -48,7 +49,7 @@ rtm.on('message', (message) => {
         rtm.sendMessage(greeting(), channel);
         break;
       case '학사일정':
-        rtm.sendMessage('안내받을날짜를이야기해주세요', channel);
+        rtm.sendMessage('안내받을 날짜를 이야기해주세요', channel);
         break;
       case '밥':
         menu(rtm, channel);
