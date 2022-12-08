@@ -24,5 +24,5 @@ const Info = {
   libraryandinformationscience: 'Library and Information Science',
 }; */
 
-module.exports.Info = Info;
+module.exports = Info;
 // exports.original = original;
