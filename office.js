@@ -5,4 +5,5 @@ function getAdress(text) {
   parsed = parse(text);
   return Info.Info[parsed];
 }
-exports = getAdress;
+
+module.exports = { getAdress };
