@@ -36,12 +36,10 @@ rtm.on('message', (message) => {
   } else if (text === '학과 사무실 안내') {
     rtm.sendMessage('학과 이름을 입력해주세요', channel);
 
-    rtm.on('message', (message) => {
-      const { channel } = message;
-      const { text } = message;
-      rtm.sendMessage('asdadasdasd', channel); // getAdress(text)
-      console.log(text);
-    });
+    const { channel } = message;
+    const { text } = message;
+    rtm.sendMessage('asdadasdasd', channel); // getAdress(text) 이게 늦어서 그런듯?
+    console.log(text);
   } else if (text === '학사일정') {
     rtm.sendMessage(schedule(text), channel);
   } else if (text === '이번주 뭐나와') {
