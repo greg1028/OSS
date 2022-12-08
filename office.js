@@ -2,8 +2,8 @@ const Info = require('./officeInfo');
 const parse = require('./parse');
 
 function getAdress(text) {
-  parsed = parse(text);
+  const parsed = parse(text);
   return Info.Info[parsed];
 }
 
-module.exports = { getAdress };
+module.exports = getAdress;
