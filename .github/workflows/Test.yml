@@ -3,6 +3,8 @@
 
 name: Test.js CI
 
+encoding = 'utf-8'
+
 on:
   push:
     branches: [ "main", "kmc", "ksm", "udh" ]
@@ -11,9 +13,8 @@ on:
 
 jobs:
   build:
-    response.encoding = 'utf-8'
     runs-on: ubuntu-latest
-
+    
     strategy:
       matrix:
         node-version: [ 16.x ]
