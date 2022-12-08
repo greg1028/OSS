@@ -1,5 +1,5 @@
 const assert = require('assert');
-const schedule = require('../schedule');
+const schedule = require('../schedule2');
 
 const text1 = '10/15';
 const text2 = '8/22';
