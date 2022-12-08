@@ -37,8 +37,8 @@ rtm.on('message', (message) => {
 
     rtm.on('message', (message) => {
       const { channel } = message;
-      let { text } = message;
-      text = parse(text);
+      const { text } = message;
+      // text = parse(text);
       rtm.sendMessage(getAdress(text), channel);
       console.log('here');
     });
