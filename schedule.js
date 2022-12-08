@@ -1,7 +1,7 @@
 const scheduleInfo = require('./haksa');
 
 function schedule(text) {
-  str = `${text}´Â ${scheduleInfo[text]}ÀÔ´Ï´Ù.`;
+  str = `${text}ëŠ” ${scheduleInfo[text]}ìž…ë‹ˆë‹¤.`;
   return str;
 }
 module.exports = schedule;
