@@ -28,7 +28,7 @@ const rating = require('./rating');
 const parse = require('./parse');
 
 let sch = false; // 학사 일정 상태
-const offi = false; // 학과 사무실 상태
+let offi = false; // 학과 사무실 상태
 
 rtm.on('message', (message) => {
   const { channel } = message;
@@ -41,15 +41,20 @@ rtm.on('message', (message) => {
     if (text in scheduleinfo) {
       rtm.sendMessage(schedule(text), channel);
     } else {
-      rtm.sendMessage('유효하지 않은 입력입니다.');
+      rtm.sendMessage('유효하지 않은 일정 입력입니다.');
     }
     sch = false;
+  } else if (offi) {
+    if (text in Info) {
+      rtm.sendMessage(getAdress(text), channel);
+    } else {
+      rtm.sendMessage('유효하지 않은 학과 입력입니다.');
+    }
+    offi = false;
   }
 
   if (!isNaN(text)) {
     square(rtm, text, channel);
-  } else if (text in Info) {
-    rtm.sendMessage(getAdress(text), channel);
   } else if (text === '이번주뭐나와') {
     rating(rtm, channel);
   } else if (isNaN(text)) {
