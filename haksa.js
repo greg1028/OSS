@@ -11,6 +11,7 @@ const scheduleinfo = {
   '11/24': '수시 면접고사',
   '12/21': '종강',
   '12/23': '계절수업 시작',
+  '12/31': '한글 테스트',
 };
 
 module.exports = scheduleinfo;
