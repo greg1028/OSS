@@ -34,13 +34,13 @@ rtm.on('message', (message) => {
     square(rtm, text, channel);
   } else if (text === '학과사무실안내') {
     rtm.sendMessage('학과 이름을 입력해주세요', channel);
-    /*
+
     rtm.on('message', (message) => {
       const { channel } = message;
       let { text } = message;
       text = parse(text);
-      rtm.sendMessage(getAdress(text), channel);
-    }); */
+      // rtm.sendMessage(getAdress(text), channel);
+    });
   } else if (text === '학사일정') {
     rtm.sendMessage(schedule(text), channel);
   } else if (text === '이번주뭐나와') {
