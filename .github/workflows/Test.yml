@@ -3,8 +3,6 @@
 
 name: Test.js CI
 
-encoding = 'utf-8'
-
 on:
   push:
     branches: [ "main", "kmc", "ksm", "udh" ]
