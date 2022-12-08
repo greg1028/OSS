@@ -72,7 +72,7 @@ rtm.on('message', (message) => {
         menu(rtm, channel);
         break;
       default:
-        rtm.sendMessage('명령어 : 1. 학사일정\n 2. 학과안내\n 3. 밥\n 4.이번주뭐나와', channel);
+        rtm.sendMessage('명령어\n 1. 학사일정\n 2. 학과안내\n 3. 밥\n 4.이번주뭐나와', channel);
     }
   }
 });
