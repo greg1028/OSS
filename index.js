@@ -30,33 +30,34 @@ rtm.on('message', (message) => {
   const { channel } = message;
   const { text } = message;
   // const parsed = parse(text);
-  console.log(channel);
-  if (!isNaN(text)) {
-    square(rtm, text, channel);
-  } else if (text === '학과 사무실 안내') {
-    rtm.sendMessage('학과 이름을 입력해주세요', channel);
-
-    const { channel } = message;
-    const { text } = message;
+  if (flag === 0) {
+    if (!isNaN(text)) {
+      square(rtm, text, channel);
+    } else if (text === '학과 사무실 안내') {
+      rtm.sendMessage('학과 이름을 입력해주세요', channel);
+      flag = 1;
+    } else if (text === '학사일정') {
+      rtm.sendMessage(schedule(text), channel);
+    } else if (text === '이번주 뭐나와') {
+      rating(rtm, channel);
+    } else if (isNaN(text)) {
+      switch (text) {
+        case 'hi':
+          rtm.sendMessage(greeting(), channel);
+          break;
+        case '학사일정':
+          rtm.sendMessage('안내받을 날짜를 이야기해주세요', channel);
+          break;
+        case '밥':
+          menu(rtm, channel);
+          break;
+        default:
+          rtm.sendMessage('I am alive~', channel);
+      }
+    }
+  } else if (flag === 1) {
     rtm.sendMessage('asdadasdasd', channel); // getAdress(text) 이게 늦어서 그런듯?
     console.log(text);
-  } else if (text === '학사일정') {
-    rtm.sendMessage(schedule(text), channel);
-  } else if (text === '이번주 뭐나와') {
-    rating(rtm, channel);
-  } else if (isNaN(text)) {
-    switch (text) {
-      case 'hi':
-        rtm.sendMessage(greeting(), channel);
-        break;
-      case '학사일정':
-        rtm.sendMessage('안내받을 날짜를 이야기해주세요', channel);
-        break;
-      case '밥':
-        menu(rtm, channel);
-        break;
-      default:
-        rtm.sendMessage('I am alive~', channel);
-    }
+    flag = 0;
   }
 });
