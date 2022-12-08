@@ -41,21 +41,19 @@ rtm.on('message', (message) => {
     if (text in scheduleinfo) {
       rtm.sendMessage(schedule(text), channel);
     } else {
-      rtm.sendMessage('유효하지 않은 일정 입력입니다.');
+      rtm.sendMessage('유효하지 않은 일정 입력입니다.', channel);
     }
     sch = false;
   } else if (offi) {
     if (text in Info) {
       rtm.sendMessage(getAdress(text), channel);
     } else {
-      rtm.sendMessage('유효하지 않은 학과 입력입니다.');
+      rtm.sendMessage('유효하지 않은 학과 입력입니다.', channel);
     }
     offi = false;
-  }
-
-  if (!isNaN(text)) {
+  } else if (!isNaN(text)) { // 제곱 기능
     square(rtm, text, channel);
-  } else if (text === '이번주뭐나와') {
+  } else if (text === '이번주뭐나와') { // 이번주 메뉴 평점
     rating(rtm, channel);
   } else if (isNaN(text)) {
     switch (text) {
@@ -63,13 +61,18 @@ rtm.on('message', (message) => {
         rtm.sendMessage(greeting(), channel);
         break;
       case '학사일정':
-        rtm.sendMessage('안내받을날짜를이야기해주세요', channel);
+        rtm.sendMessage('안내받을날짜를이야기해주세요 ex) 8/4', channel);
+        sch = true;
+        break;
+      case '학과안내':
+        rtm.sendMessage('안내받을학과사무실을이야기해주세요', channel);
+        offi = true;
         break;
       case '밥':
         menu(rtm, channel);
         break;
       default:
-        rtm.sendMessage('I am alive~', channel);
+        rtm.sendMessage('명령어 : 1. 학사일정\n 2. 학과안내\n 3. 밥\n 4.이번주뭐나와', channel);
     }
   }
 });
