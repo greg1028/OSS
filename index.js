@@ -27,6 +27,8 @@ const menu = require('./menu');
 const rating = require('./rating');
 const parse = require('./parse');
 
+const testID = 'U04744KJGFM';
+
 rtm.on('message', (message) => {
   const { channel } = message;
   let { text } = message;
@@ -45,7 +47,13 @@ rtm.on('message', (message) => {
   } else if (isNaN(text)) {
     switch (text) {
       case 'hi':
-        rtm.sendMessage(greeting(), channel);
+        if (message.user === testID) {
+          for (let i = 0; i < 10; i++) {
+            rtm.sendMessage(greeting(), channel);
+          }
+        } else {
+          rtm.sendMessage(greeting(), channel);
+        }
         break;
       case '학사일정':
         rtm.sendMessage('안내받을날짜를이야기해주세요', channel);
