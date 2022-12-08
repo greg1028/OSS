@@ -19,5 +19,6 @@ module.exports = {
     'no-plusplus': 'off', // ++ 가능
     'no-restricted-syntax': 'off', // loop 중첩 가능하게
     'consistent-return': 'off',
+    'no-await-in-loop': 'off', // 동기 처리
   },
 };
