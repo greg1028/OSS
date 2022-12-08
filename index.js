@@ -28,37 +28,37 @@ const rating = require('./rating');
 flag = 0; // 0 : 기본, 1 : 학과사무실안내
 rtm.on('message', (message) => {
   const { channel } = message;
-  let { text } = message;
+  const { text } = message;
   // const parsed = parse(text);
 
-  if (flag === 0) {
-    if (!isNaN(text)) {
-      square(rtm, text, channel);
-    } else if (text === '학과 사무실 안내') {
-      rtm.sendMessage('학과 이름을 입력해주세요', channel);
-      text = message;
-      flag = 1;
-    } else if (text === '학사일정') {
-      rtm.sendMessage(schedule(text), channel);
-    } else if (text === '이번주 뭐나와') {
-      rating(rtm, channel);
-    } else if (isNaN(text)) {
-      switch (text) {
-        case 'hi':
-          rtm.sendMessage(greeting(), channel);
-          break;
-        case '학사일정':
-          rtm.sendMessage('안내받을 날짜를 이야기해주세요', channel);
-          break;
-        case '밥':
-          menu(rtm, channel);
-          break;
-        default:
-          rtm.sendMessage('I am alive~', channel);
-      }
+  if (!isNaN(text)) {
+    square(rtm, text, channel);
+  } else if (text === '학과 사무실 안내') {
+    rtm.sendMessage('학과 이름을 입력해주세요', channel);
+
+    rtm.on('message', (message) => {
+      const { channel } = message;
+      const { text } = message;
+      rtm.sendMessage(getAdress(text), channel);
+      console.log('saasdasdas');
+    });
+  } else if (text === '학사일정') {
+    rtm.sendMessage(schedule(text), channel);
+  } else if (text === '이번주 뭐나와') {
+    rating(rtm, channel);
+  } else if (isNaN(text)) {
+    switch (text) {
+      case 'hi':
+        rtm.sendMessage(greeting(), channel);
+        break;
+      case '학사일정':
+        rtm.sendMessage('안내받을 날짜를 이야기해주세요', channel);
+        break;
+      case '밥':
+        menu(rtm, channel);
+        break;
+      default:
+        rtm.sendMessage('I am alive~', channel);
     }
-  } else if (flag === 1) {
-    rtm.sendMessage(getAdress(text), channel);
-    flag = 0;
   }
 });
