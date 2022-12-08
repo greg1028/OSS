@@ -27,24 +27,34 @@ const menu = require('./menu');
 const rating = require('./rating');
 const parse = require('./parse');
 
-const testID = 'U04744KJGFM';
+// 1 학사일정, 2 학과안내
+let flag = 0;
+
+// 우리봇 ID
+const testID = 'U0486N82N9E';
 
 rtm.on('message', (message) => {
   const { channel } = message;
   let { text } = message;
   text = parse(text);
-  console.log(message);
-  console.log(text);
 
-  if (!isNaN(text)) {
+  if (flag === 1) { // 학사일정 입력 받았을 때
+    if (text in scheduleinfo) {
+      rtm.sendMessage(schedule(text), channel);
+    } else {
+      rtm.sendMessage('유효하지 않은 일정 입력입니다.', channel);
+    }
+    flag = 0;
+  } else if (flag === 2) { // 학과안내 입력 받았을 때
+    if (text in Info) {
+      rtm.sendMessage(getAdress(text), channel);
+    } else {
+      rtm.sendMessage('유효하지 않은 학과 입력입니다.', channel);
+    }
+    flag = 0;
+  } else if (!isNaN(text)) { // 제곱 기능
     square(rtm, text, channel);
-  } else if (text in Info) {
-    rtm.sendMessage(getAdress(text), channel);
-  } else if (text in scheduleinfo) {
-    rtm.sendMessage(schedule(text), channel);
-  } else if (text === '이번주뭐나와') {
-    rating(rtm, channel);
-  } else if (isNaN(text)) {
+  } else {
     switch (text) {
       case 'hi':
         if (message.user === testID) {
@@ -56,13 +66,21 @@ rtm.on('message', (message) => {
         }
         break;
       case '학사일정':
-        rtm.sendMessage('안내받을날짜를이야기해주세요', channel);
+        rtm.sendMessage('안내받을날짜를이야기해주세요 ex) 8/4', channel);
+        flag = 1;
         break;
-      case '밥':
+      case '학과안내':
+        rtm.sendMessage('안내받을학과사무실을이야기해주세요', channel);
+        flag = 2;
+        break;
+      case '밥': // 오늘 메뉴
         menu(rtm, channel);
         break;
+      case '이번주뭐나와': // 이번주 메뉴 평점
+        rating(rtm, channel);
+        break;
       default:
-        rtm.sendMessage('I am alive~', channel);
+        rtm.sendMessage('명령어\n 1. 학사일정\n 2. 학과안내\n 3. 밥\n 4.이번주뭐나와', channel);
     }
   }
 });
