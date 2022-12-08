@@ -27,8 +27,8 @@ const menu = require('./menu');
 const rating = require('./rating');
 const parse = require('./parse');
 
-let sch = false; // 학사일정 상태
-let offi = false; // 학과사무실 상태
+// 1 학사일정, 2 학과안내
+let flag = 0;
 
 rtm.on('message', (message) => {
   const { channel } = message;
@@ -37,20 +37,20 @@ rtm.on('message', (message) => {
   console.log(message);
   console.log(text);
 
-  if (sch) { // 학사일정 입력 받았을 때
+  if (flag === 1) { // 학사일정 입력 받았을 때
     if (text in scheduleinfo) {
       rtm.sendMessage(schedule(text), channel);
     } else {
       rtm.sendMessage('유효하지 않은 일정 입력입니다.', channel);
     }
-    sch = false;
-  } else if (offi) { // 학과안내 입력 받았을 때
+    flag = 0;
+  } else if (flag === 2) { // 학과안내 입력 받았을 때
     if (text in Info) {
       rtm.sendMessage(getAdress(text), channel);
     } else {
       rtm.sendMessage('유효하지 않은 학과 입력입니다.', channel);
     }
-    offi = false;
+    flag = 0;
   } else if (!isNaN(text)) { // 제곱 기능
     square(rtm, text, channel);
   } else {
@@ -60,11 +60,11 @@ rtm.on('message', (message) => {
         break;
       case '학사일정':
         rtm.sendMessage('안내받을날짜를이야기해주세요 ex) 8/4', channel);
-        sch = true;
+        flag = 1;
         break;
       case '학과안내':
         rtm.sendMessage('안내받을학과사무실을이야기해주세요', channel);
-        offi = true;
+        flag = 2;
         break;
       case '밥': // 오늘 메뉴
         menu(rtm, channel);
