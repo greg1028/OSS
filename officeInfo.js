@@ -5,7 +5,7 @@ const Info = {
   electronicengineering: 'College of Engineering Building 7, 224',
   computerscienceandengineering: 'College of Engineering Building 7, 224',
   chemicalengineering: 'College of Engineering Building 6, 999',
-  Accounting: 'College of Commerce 2, 9999',
+  accounting: 'College of Commerce 2, 9999',
   internationaltrade: 'College of Commerce 1, 9999',
   koreanlanguageandliterature: 'College of Humanities, 320',
   libraryandinformationscience: 'College of Humanities, 427',
