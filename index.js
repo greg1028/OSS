@@ -23,19 +23,20 @@ const getAdress = require('./office');
 const schedule = require('./schedule');
 const menu = require('./menu');
 const rating = require('./rating');
-const parse = require('./parse');
+// const parse = require('./parse');
 
 flag = 0; // 0 : 기본, 1 : 학과사무실안내
 rtm.on('message', (message) => {
   const { channel } = message;
-  const { text } = message;
-  const parsed = parse(text);
+  let { text } = message;
+  // const parsed = parse(text);
 
   if (flag === 0) {
     if (!isNaN(text)) {
       square(rtm, text, channel);
     } else if (text === '학과 사무실 안내') {
       rtm.sendMessage('학과 이름을 입력해주세요', channel);
+      text = message;
       flag = 1;
     } else if (text === '학사일정') {
       rtm.sendMessage(schedule(text), channel);
@@ -57,7 +58,7 @@ rtm.on('message', (message) => {
       }
     }
   } else if (flag === 1) {
-    rtm.sendMessage(getAdress(parsed), channel);
+    rtm.sendMessage(getAdress(text), channel);
     flag = 0;
   }
 });
