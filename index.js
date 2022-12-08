@@ -30,7 +30,7 @@ rtm.on('message', (message) => {
   const { channel } = message;
   const { text } = message;
   // const parsed = parse(text);
-
+  console.log(channel);
   if (!isNaN(text)) {
     square(rtm, text, channel);
   } else if (text === '학과 사무실 안내') {
