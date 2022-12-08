@@ -31,11 +31,7 @@ rtm.on('message', (message) => {
   const { channel } = message;
   const { text } = message;
 
-  if (message.user === testID) {
-    for (let i = 0; i < 10; i++) {
-      rtm.sendMessage(greeting(), channel);
-    }
-  } else if (!isNaN(text)) {
+  if (!isNaN(text)) {
     square(rtm, text, channel);
   } else if (text in Info) {
     rtm.sendMessage(getAdress(text), channel);
@@ -44,7 +40,13 @@ rtm.on('message', (message) => {
   } else if (isNaN(text)) {
     switch (text) {
       case 'hi':
-        rtm.sendMessage(greeting(), channel);
+        if (message.user === testID) {
+          for (let i = 0; i < 10; i++) {
+            rtm.sendMessage(greeting(), channel);
+          }
+        } else {
+          rtm.sendMessage(greeting(), channel);
+        }
         break;
       case '학사일정':
         rtm.sendMessage('안내 받을 날짜를 이야기해주세요', channel);
