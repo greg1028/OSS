@@ -19,7 +19,7 @@ rtm.start();
 
 const greeting = require('./greeting');
 const square = require('./square');
-// const getAdress = require('./office');
+const getAdress = require('./office');
 const schedule = require('./schedule');
 const menu = require('./menu');
 const rating = require('./rating');
