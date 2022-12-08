@@ -53,7 +53,7 @@ rtm.on('message', (message) => {
     offi = false;
   } else if (!isNaN(text)) { // 제곱 기능
     square(rtm, text, channel);
-  } else if (isNaN(text)) {
+  } else {
     switch (text) {
       case 'hi':
         rtm.sendMessage(greeting(), channel);
