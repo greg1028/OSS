@@ -28,18 +28,18 @@ const parse = require('./parse');
 flag = 0; // 0 : 기본, 1 : 학과사무실안내
 rtm.on('message', (message) => {
   const { channel } = message;
-  let { text } = message;
-  text = parse(text);
+  const { text } = message;
+  const parsed = parse(text);
 
   if (flag === 0) {
     if (!isNaN(text)) {
       square(rtm, text, channel);
-    } else if (text === '학과사무실안내') {
+    } else if (text === '학과 사무실 안내') {
       rtm.sendMessage('학과 이름을 입력해주세요', channel);
       flag = 1;
     } else if (text === '학사일정') {
       rtm.sendMessage(schedule(text), channel);
-    } else if (text === '이번주뭐나와') {
+    } else if (text === '이번주 뭐나와') {
       rating(rtm, channel);
     } else if (isNaN(text)) {
       switch (text) {
@@ -57,7 +57,7 @@ rtm.on('message', (message) => {
       }
     }
   } else if (flag === 1) {
-    rtm.sendMessage(getAdress(text), channel);
+    rtm.sendMessage(getAdress(parsed), channel);
     flag = 0;
   }
 });
