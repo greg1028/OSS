@@ -32,6 +32,7 @@ rtm.on('message', (message) => {
   let { text } = message;
   text = parse(text);
   console.log(message);
+  console.log(text);
 
   if (!isNaN(text)) {
     square(rtm, text, channel);
