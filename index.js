@@ -27,6 +27,7 @@ const scheduleinfo = require('./haksa');
 const parse = require('./parse');
 
 flag = 0; // 0 : 기본, 1 : 학과사무실안내
+
 rtm.on('message', (message) => {
   const { channel } = message;
   let { text } = message;
