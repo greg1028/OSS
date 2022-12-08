@@ -58,7 +58,7 @@ rtm.on('message', (message) => {
       }
     }
   } else if (flag === 1) {
-    rtm.sendMessage(getAdress(text), channel); // getAdress(text) 이게 늦어서 그런듯?
+    rtm.sendMessage(getAdress(text).toString, channel); // getAdress(text) 이게 늦어서 그런듯?
     console.log(text);
     flag = 0;
   }
