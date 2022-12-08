@@ -11,7 +11,7 @@ const Info = {
   libraryandinformationscience: 'College of Humanities, 427',
 };
 
-const original = {
+/* const original = {
   architecturalengineering: 'Architectural Engineering',
   mechanicalengineering: 'Mechanical Engineering',
   urbanengineering: 'Urban Engineering',
@@ -22,7 +22,7 @@ const original = {
   internationaltrade: 'International Trade',
   koreanlanguageandliterature: 'Korean Language and Literature',
   libraryandinformationscience: 'Library and Information Science',
-};
+}; */
 
-exports.Info = Info;
-exports.original = original;
+module.exports.Info = Info;
+// exports.original = original;
