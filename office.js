@@ -7,5 +7,6 @@ function getAdress(text) {
   res = Info[parsed];
   return res;
 }
+getAdress('Accounting');
 
 module.exports = getAdress;
