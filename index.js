@@ -39,7 +39,8 @@ rtm.on('message', (message) => {
       const { channel } = message;
       let { text } = message;
       text = parse(text);
-      // rtm.sendMessage(getAdress(text), channel);
+      rtm.sendMessage(getAdress(text), channel);
+      console.log('here');
     });
   } else if (text === '학사일정') {
     rtm.sendMessage(schedule(text), channel);
