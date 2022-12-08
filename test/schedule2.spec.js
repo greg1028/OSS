@@ -5,7 +5,7 @@ const text1 = '10/15';
 const text2 = '8/22';
 const text3 = '12/21';
 
-describe('schedule test!2', () => {
+describe('schedule test!', () => {
   it("Test - Put '10/15'", (done) => {
     assert.equal(schedule(text1), '10/15는 개교기념일입니다.');
     done();
