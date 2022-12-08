@@ -29,7 +29,9 @@ const parse = require('./parse');
 
 rtm.on('message', (message) => {
   const { channel } = message;
-  const { text } = parse(message);
+  let { text } = message;
+  text = parse(text);
+  console.log(message);
 
   if (!isNaN(text)) {
     square(rtm, text, channel);

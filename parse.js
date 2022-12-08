@@ -7,6 +7,6 @@ function parse(txt) {
   return parsed;
 }
 
-console.log(parse('A cascB asnlc acnkjn ASDACAXAX'));
+console.log(parse('이번주 뭐나와'));
 
 module.exports = parse;
