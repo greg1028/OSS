@@ -23,6 +23,8 @@ const getAdress = require('./office');
 const schedule = require('./schedule');
 const menu = require('./menu');
 const rating = require('./rating');
+const scheduleinfo = require('./haksa');
+
 // const parse = require('./parse');
 
 flag = 0; // 0 : 기본, 1 : 학과사무실안내
@@ -36,7 +38,7 @@ rtm.on('message', (message) => {
     } else if (text === '학과 사무실 안내') {
       rtm.sendMessage('학과 이름을 입력해주세요', channel);
       flag = 1;
-    } else if (text === '학사일정') {
+    } else if (text in scheduleinfo) {
       rtm.sendMessage(schedule(text), channel);
     } else if (text === '이번주 뭐나와') {
       rating(rtm, channel);
