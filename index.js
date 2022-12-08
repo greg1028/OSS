@@ -40,7 +40,7 @@ rtm.on('message', (message) => {
       const { channel } = message;
       const { text } = message;
       rtm.sendMessage(getAdress(text), channel);
-      console.log('saasdasdas');
+      console.log(text);
     });
   } else if (text === '학사일정') {
     rtm.sendMessage(schedule(text), channel);
