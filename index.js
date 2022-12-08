@@ -30,12 +30,13 @@ const parse = require('./parse');
 // 1 학사일정, 2 학과안내
 let flag = 0;
 
+// 우리봇 ID
+const testID = 'U0486N82N9E';
+
 rtm.on('message', (message) => {
   const { channel } = message;
   let { text } = message;
   text = parse(text);
-  console.log(message);
-  console.log(text);
 
   if (flag === 1) { // 학사일정 입력 받았을 때
     if (text in scheduleinfo) {
@@ -56,7 +57,13 @@ rtm.on('message', (message) => {
   } else {
     switch (text) {
       case 'hi':
-        rtm.sendMessage(greeting(), channel);
+        if (message.user === testID) {
+          for (let i = 0; i < 10; i++) {
+            rtm.sendMessage(greeting(), channel);
+          }
+        } else {
+          rtm.sendMessage(greeting(), channel);
+        }
         break;
       case '학사일정':
         rtm.sendMessage('안내받을날짜를이야기해주세요 ex) 8/4', channel);
