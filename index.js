@@ -19,15 +19,17 @@ rtm.start();
 
 const greeting = require('./greeting');
 const square = require('./square');
-// const getAdress = require('./office');
 const getAdress = require('./dept');
 const schedule = require('./haksa');
 const menu = require('./menu');
 const rating = require('./rating');
-const scheduleinfo = require('./haksa');
 const parse = require('./parse');
 
-flag = 0; // 0 : 기본, 1 : 학과사무실안내
+// 1 학사일정, 2 학과안내
+let flag = 0;
+
+// 우리봇 ID
+const testID = 'U04BAUA4KQW';
 
 rtm.on('message', (message) => {
   const { channel } = message;
@@ -49,7 +51,13 @@ rtm.on('message', (message) => {
     } else if (text === '밥') {
       menu(rtm, channel);
     } else if (text === 'hi') {
-      rtm.sendMessage(greeting(), channel);
+      if (message.user === testID) {
+        for (let i = 0; i < 10; i++) {
+          rtm.sendMessage(greeting(), channel);
+        }
+      } else {
+        rtm.sendMessage(greeting(), channel);
+      }
     } else {
       rtm.sendMessage('I am alive~', channel);
     }
