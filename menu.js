@@ -35,7 +35,7 @@ function menu(rtm, channel) {
     webScraping(url, selector).then((res) => {
       for (let i = 0; i < res.length; i++) {
         if (res[i].replace(/(\s*)/g, '') !== '') {
-          txt += `${res[i]}, `;
+          txt += `${res[i].replace(/(\s*)/g, '')}, `;
 
           // rating
           for (const item of goodMenu) {
