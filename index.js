@@ -21,8 +21,8 @@ const greeting = require('./greeting');
 const square = require('./square');
 const getAdress = require('./office');
 const Info = require('./officeInfo');
-const schedule = require('./schedule');
-const scheduleinfo = require('./haksa');
+const schedule = require('./schedule2');
+const scheduleinfo = require('./haksa2');
 const menu = require('./menu');
 const rating = require('./rating');
 const parse = require('./parse');
@@ -31,7 +31,7 @@ const parse = require('./parse');
 let flag = 0;
 
 // 우리봇 ID
-const testID = 'U0486N82N9E';
+const testID = 'U04BAUA4KQW';
 
 rtm.on('message', (message) => {
   const { channel } = message;
