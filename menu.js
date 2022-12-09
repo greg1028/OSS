@@ -18,7 +18,7 @@ const day = ['일요일', '월요일', '화요일', '수요일', '목요일',
   '금요일', '토요일'];
 
 const d = new Date().getDay();
-console.log(`${day[d]} 메뉴`);
+console.log(`${day[d]}`);
 
 const badMenu = ['깻잎', '샐러드', '야채', '나물', '무침'];
 const goodMenu = ['고기', '구이', '닭', '갈비', '돈까스'];

@@ -11,8 +11,6 @@ try {
   console.error(err);
 }
 
-console.log(token);
-
 token = token.replace(/\n/g, '');
 
 const rtm = new RTMClient(token);
