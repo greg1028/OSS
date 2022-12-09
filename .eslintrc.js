@@ -22,5 +22,6 @@ module.exports = {
     'no-await-in-loop': 'off', // 동기 처리
     'no-shadow': 'Off', // to parse
     'no-use-before-define': 'off', // 변수 재할당
+    'prefer-destructuring': 'off',
   },
 };
