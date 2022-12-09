@@ -42,8 +42,6 @@ rtm.on('message', (message) => {
     } else if (text === '학과사무실안내') {
       rtm.sendMessage('학과 이름을 입력해주세요', channel);
       flag = 1;
-    } else if (text in scheduleinfo) {
-      rtm.sendMessage(schedule(text), channel);
     } else if (text === '이번주뭐나와') {
       rating(rtm, channel);
     } else if (text === '학사일정') {
