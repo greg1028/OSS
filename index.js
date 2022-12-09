@@ -1,4 +1,3 @@
-// 한글 확인용
 const { RTMClient } = require('@slack/rtm-api');
 
 const fs = require('fs');
@@ -27,7 +26,7 @@ const parse = require('./parse');
 // 1 학사일정, 2 학과안내
 let flag = 0;
 
-// 우리봇 ID
+// 테스트 봇 ID
 const testID = 'U04BAUA4KQW';
 
 rtm.on('message', (message) => {
@@ -56,13 +55,13 @@ rtm.on('message', (message) => {
         rtm.sendMessage(greeting(), channel);
       }
     } else {
-      rtm.sendMessage('명령어\n 1. 학사일정\n 2. 학과사무실안내\n 3. 밥\n 4. 이번주뭐나와', channel);
+      rtm.sendMessage('명령어\n1. 학사일정\n2. 학과사무실안내\n3. 밥\n4. 이번주뭐나와', channel);
     }
-  } else if (flag === 1) { // 학과사무실, 학사일정
+  } else if (flag === 1) { // 학과사무실
     rtm.sendMessage(getAdress(text), channel);
     console.log(text);
     flag = 0;
-  } else if (flag === 2) {
+  } else if (flag === 2) { // 학사일정
     rtm.sendMessage(schedule(text), channel);
     console.log(text);
     flag = 0;
