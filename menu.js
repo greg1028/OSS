@@ -64,6 +64,7 @@ function menu(rtm, channel) {
 
       star = '★'.repeat(score);
       console.log(star);
+      txt = '';
       rtm.sendMessage(txt, channel);
       rtm.sendMessage(star, channel);
     });
