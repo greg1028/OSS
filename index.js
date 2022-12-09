@@ -1,3 +1,4 @@
+// 한글
 const { RTMClient } = require('@slack/rtm-api');
 
 const fs = require('fs');
