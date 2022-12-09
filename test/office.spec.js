@@ -1,5 +1,5 @@
 const assert = require('assert');
-const getAdress = require('../office');
+const getAdress = require('../dept');
 
 const text1 = 'Architectural Engineering';
 const text2 = 'Korean Language and Literature';

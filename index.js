@@ -19,7 +19,8 @@ rtm.start();
 
 const greeting = require('./greeting');
 const square = require('./square');
-const getAdress = require('./office');
+// const getAdress = require('./office');
+const getAdress = require('./dept');
 const schedule = require('./haksa');
 const menu = require('./menu');
 const rating = require('./rating');
@@ -36,7 +37,7 @@ rtm.on('message', (message) => {
     if (!isNaN(text)) {
       square(rtm, text, channel);
     } else if (text === '학과사무실안내') {
-      rtm.sendMessage('학과이름을입력해주세요', channel);
+      rtm.sendMessage('학과 이름을 입력해주세요', channel);
       flag = 1;
     } else if (text in scheduleinfo) {
       rtm.sendMessage(schedule(text), channel);
