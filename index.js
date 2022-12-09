@@ -56,7 +56,7 @@ rtm.on('message', (message) => {
         rtm.sendMessage(greeting(), channel);
       }
     } else {
-      rtm.sendMessage('I am alive~', channel);
+      rtm.sendMessage('명령어\n 1. 학사일정\n 2. 학과사무실안내\n 3. 밥\n 4. 이번주뭐나와', channel);
     }
   } else if (flag === 1) { // 학과사무실, 학사일정
     rtm.sendMessage(getAdress(text), channel);
