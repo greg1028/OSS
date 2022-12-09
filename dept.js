@@ -1,4 +1,4 @@
-const dis = require('editdistance');
+const editdistance = require('editdistance');
 const fs = require('fs');
 
 dept = fs.readFileSync('./dept.txt').toString('utf-8');
