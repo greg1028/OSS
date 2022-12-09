@@ -1,3 +1,4 @@
+// 한글 확인용
 const { RTMClient } = require('@slack/rtm-api');
 
 const fs = require('fs');
@@ -19,10 +20,8 @@ rtm.start();
 
 const greeting = require('./greeting');
 const square = require('./square');
-const getAdress = require('./office');
-const Info = require('./officeInfo');
-const schedule = require('./schedule2');
-const scheduleinfo = require('./haksa2');
+const getAdress = require('./dept');
+const schedule = require('./haksa');
 const menu = require('./menu');
 const rating = require('./rating');
 const parse = require('./parse');
@@ -37,50 +36,37 @@ rtm.on('message', (message) => {
   const { channel } = message;
   let { text } = message;
   text = parse(text);
-
-  if (flag === 1) { // 학사일정 입력 받았을 때
-    if (text in scheduleinfo) {
-      rtm.sendMessage(schedule(text), channel);
-    } else {
-      rtm.sendMessage('유효하지 않은 일정 입력입니다.', channel);
-    }
-    flag = 0;
-  } else if (flag === 2) { // 학과안내 입력 받았을 때
-    if (text in Info) {
-      rtm.sendMessage(getAdress(text), channel);
-    } else {
-      rtm.sendMessage('유효하지 않은 학과 입력입니다.', channel);
-    }
-    flag = 0;
-  } else if (!isNaN(text)) { // 제곱 기능
-    square(rtm, text, channel);
-  } else {
-    switch (text) {
-      case 'hi':
-        if (message.user === testID) {
-          for (let i = 0; i < 10; i++) {
-            rtm.sendMessage(greeting(), channel);
-          }
-        } else {
+  if (flag === 0) { // 기본
+    if (!isNaN(text)) {
+      square(rtm, text, channel);
+    } else if (text === '학과사무실안내') {
+      rtm.sendMessage('학과 이름을 입력해주세요', channel);
+      flag = 1;
+    } else if (text === '이번주뭐나와') {
+      rating(rtm, channel);
+    } else if (text === '학사일정') {
+      rtm.sendMessage('안내받을 날짜를 이야기해주세요', channel);
+      flag = 2;
+    } else if (text === '밥') {
+      menu(rtm, channel);
+    } else if (text === 'hi') {
+      if (message.user === testID) {
+        for (let i = 0; i < 10; i++) {
           rtm.sendMessage(greeting(), channel);
         }
-        break;
-      case '학사일정':
-        rtm.sendMessage('안내받을날짜를이야기해주세요 ex) 8/4', channel);
-        flag = 1;
-        break;
-      case '학과안내':
-        rtm.sendMessage('안내받을학과사무실을이야기해주세요', channel);
-        flag = 2;
-        break;
-      case '밥': // 오늘 메뉴
-        menu(rtm, channel);
-        break;
-      case '이번주뭐나와': // 이번주 메뉴 평점
-        rating(rtm, channel);
-        break;
-      default:
-        rtm.sendMessage('명령어\n 1. 학사일정\n 2. 학과안내\n 3. 밥\n 4.이번주뭐나와', channel);
+      } else {
+        rtm.sendMessage(greeting(), channel);
+      }
+    } else {
+      rtm.sendMessage('I am alive~', channel);
     }
+  } else if (flag === 1) { // 학과사무실, 학사일정
+    rtm.sendMessage(getAdress(text), channel);
+    console.log(text);
+    flag = 0;
+  } else if (flag === 2) {
+    rtm.sendMessage(schedule(text), channel);
+    console.log(text);
+    flag = 0;
   }
 });

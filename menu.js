@@ -34,7 +34,7 @@ function menu(rtm, channel) {
   } else {
     webScraping(url, selector).then((res) => {
       for (let i = 0; i < res.length; i++) {
-        if (res[i] !== '') {
+        if (res[i].replace(/(\s*)/g, '') !== '') {
           txt += `${res[i]}, `;
 
           // rating
