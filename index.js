@@ -1,4 +1,4 @@
-// 한글
+// 한글 확인용
 const { RTMClient } = require('@slack/rtm-api');
 
 const fs = require('fs');
