@@ -7,6 +7,4 @@ function parse(txt) {
   return parsed;
 }
 
-console.log(parse('이번주 뭐나와'));
-
 module.exports = parse;

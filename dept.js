@@ -27,6 +27,4 @@ function Adress(text) {
   return '잘못된 입력입니다.';
 }
 
-console.log(Adress('acounting'));
-
 module.exports = Adress;
