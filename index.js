@@ -31,7 +31,7 @@ const testID = 'U04BAUA4KQW';
 
 rtm.on('message', (message) => {
   const { channel } = message;
-  let { text } = message;
+  const { text } = message;
   if (flag === 0) { // 기본
     if (!isNaN(text)) {
       square(rtm, text, channel);
