@@ -8,6 +8,7 @@ function schedule(text) {
       return i.split(' : ')[1];
     }
   }
+  return '일정이 없거나 잘못된 입력입니다.';
 }
 
 module.exports = schedule;
