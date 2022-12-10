@@ -42,7 +42,7 @@ rtm.on('message', (message) => {
     } else if (text === '이번주뭐나와') {
       rating(rtm, channel);
     } else if (text === '학사일정') {
-      rtm.sendMessage('안내받을 날짜를 이야기해주세요', channel);
+      rtm.sendMessage('안내받을 날짜를 이야기해주세요 ex)8/4', channel);
       flag = 2;
     } else if (text === '밥') {
       menu(rtm, channel);
