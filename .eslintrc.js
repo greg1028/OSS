@@ -22,5 +22,6 @@ module.exports = {
     'no-shadow': 'Off', // to parse
     'no-use-before-define': 'off', // 변수 재할당
     'prefer-destructuring': 'off',
+    'no-restricted-syntax': 'off', // loop 중첩 가능하게
   },
 };
