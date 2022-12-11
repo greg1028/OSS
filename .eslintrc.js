@@ -17,7 +17,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     'no-undef': 'off', // 정의하지 않은 함수 사용 가능
     'no-plusplus': 'off', // ++ 가능
-    'no-restricted-syntax': 'off', // loop 중첩 가능하게
     'consistent-return': 'off',
     'no-await-in-loop': 'off', // 동기 처리
     'no-shadow': 'Off', // to parse
