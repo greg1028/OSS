@@ -21,7 +21,6 @@ const getAdress = require('./dept');
 const schedule = require('./haksa');
 const menu = require('./menu');
 const rating = require('./rating');
-const parse = require('./parse');
 
 // 1 학사일정, 2 학과안내
 let flag = 0;
@@ -31,8 +30,7 @@ const testID = 'U04BAUA4KQW';
 
 rtm.on('message', (message) => {
   const { channel } = message;
-  let { text } = message;
-  text = parse(text);
+  const { text } = message;
   if (flag === 0) { // 기본
     if (!isNaN(text)) {
       square(rtm, text, channel);
